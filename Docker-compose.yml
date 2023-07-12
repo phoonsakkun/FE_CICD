@@ -1,0 +1,24 @@
+version: "3"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: unless-stopped
+    ports:
+      - "3001:3000"
+    environment:
+      - MAGIC_NAME=JOHN
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ["npm", "start"]
+
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ["npm", "run", "test"]
