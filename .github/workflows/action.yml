@@ -47,7 +47,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            docker pull pavitpim40/react-cicd:latest
+            docker pull phoonsakkun/react-cicd:latest
             docker stop react-cicd
             docker rm react-cicd
-            docker run -d --name react-ci -p 80:80 pavitpim40/react-cicd:latest
+            docker run -d --name react-ci -p 80:80 phoonsakkun/react-cicd:latest
